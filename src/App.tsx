@@ -1,13 +1,21 @@
-import { Button } from "./components/ui/button";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
 
 export default function App() {
   return (
-    <div>
-      <h1>Welcome to the React App</h1>
-      <p>This is a simple React application.</p>
-      <Button >
-        Click Me
-      </Button>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* Add more routes here as needed */}
+            </Routes>
+          </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
